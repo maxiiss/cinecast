@@ -49,6 +49,7 @@ class home_cinema():
         return tt
     
     def getVStatus(self):
+        # TODO: 'current time' does not reactualize need to be paused ...
         status = self.v_mc.status
         return status
 
@@ -66,12 +67,16 @@ class home_cinema():
         self.a_mc.seek(time)
 
     def playUrl(self, url):
+        # TODO: to be smother ...
         self.v_mc.play_media(url, 'video/mp4')
         self.a_mc.play_media(url, 'video/mp4')
-        time.sleep(7)
+        time.sleep(1)
         self.pause()
-        self.seek(1)
+        self.seek(0.1)
+        time.sleep(0.5)
         self.play()
+        time.sleep(10)
+        self.synchro()
         time.sleep(10)
         self.synchro()
 
