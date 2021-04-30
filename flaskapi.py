@@ -47,8 +47,7 @@ def playUrl():
 
 @app.route('/api/status', methods=['GET'])
 def v_status():
-    status = HC.getVStatus()
-    print(status)
+    status = HC.getAStatus()
     return json.dumps({'title':status.title,'current_time':status.current_time, 'duration':status.duration, 'player_state':status.player_state})
 
 @app.route('/api/pause', methods=['GET'])
@@ -59,4 +58,14 @@ def pause():
 @app.route('/api/play', methods=['GET'])
 def play():
     HC.play()
+    return json.dumps({})
+
+@app.route('/api/sync', methods=['POST'])
+def sync():
+    HC.synchro()
+    return json.dumps({})
+
+@app.route('/api/calibration', methods=['POST'])
+def calibration():
+    HC.calibration()
     return json.dumps({})
