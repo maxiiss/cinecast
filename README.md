@@ -21,7 +21,15 @@ All credits of the chromecast interaction should be attributed to the [pychromec
 
 - [ ] Be a chromecast-like receiver / emulator in order to use any video stream like an usual Chromecast (ie: from YT, Netflix etc.).
 
-## Current architecture
+## Architecture
+
+### Currently
+
+![Version 0](./documentation/version0.PNG "a title")
+
+### What I imagined
+
+![Version 0](./documentation/version1.PNG "a title")
 
 ## Get started
 
@@ -40,3 +48,15 @@ To be determined but I imagined using gunicorn like :
 ```bash
 sh backend.sh
 ```
+
+### For the webserver (GUI)
+
+for dev purpose, the classic :
+
+```bash
+npm run serve
+```
+
+## Restrictions
+
+For now, the .mp4 files seams to be displayed properly in the chromecast. I had some issues working with .avi files. 
