@@ -24,7 +24,11 @@
                   <v-list-item-title>{{title}}</v-list-item-title>
                   <v-list-item-subtitle>{{progressString}}</v-list-item-subtitle>
                 </v-list-item-content>
-
+                <v-list-item-icon>
+                  <v-btn icon @click="sync">
+                    <v-icon>mdi-cast-audio</v-icon>
+                  </v-btn>
+                </v-list-item-icon>
                 <v-spacer></v-spacer>
 
                 <v-list-item-icon>
@@ -134,7 +138,17 @@ export default {
     }, 
     play: function () {
       axios
-      .get(`http://127.0.0.1:5000/api/play`)
+      .get(`http://127.0.0.1:5000/api/sync`)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    }, 
+    sync: function () {
+      axios
+      .get(`http://127.0.0.1:5000/api/sync`)
       .then((response) => {
         console.log(response);
       })
